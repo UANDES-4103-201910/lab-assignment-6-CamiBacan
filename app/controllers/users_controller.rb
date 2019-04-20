@@ -26,18 +26,26 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     #complete this method
+    puts(params[:id])
+    @user = User.create(params[:user])
+    render json: @user
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
     #complete this method
+    @user = User.find(params[:id])
+    @user.update(params[:user])
+    render json: @user
   end
 
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
     #complete this method
+    @user = User.find(params[:id])
+    @user.delete()
   end
 
   private
